@@ -12,6 +12,18 @@ class DetectorSettings:
         self.quad_sigma = quad_sigma
         self.refine_edges = refine_edges
         self.decode_sharpening = decode_sharpening
+        
+    def __str__(self):
+        return \
+f"""DetectorSettings {{ 
+    threads = {self.threads}, 
+    quad {{
+        decimate = {self.quad_decimate},
+        sigma = {self.quad_sigma}
+    }},
+    refine_edges = {self.refine_edges}, 
+    decode_sharpening = {self.decode_sharpening}
+}}"""
 
 class AprilTagDetector:
     def __init__(self, settings: DetectorSettings, family = COMPETITION_FAMILY):
